@@ -1,0 +1,34 @@
+<div class="border pado" *ngIf="!showDeleteItem">
+  <div class="card" *ngIf="customer$ | async as customer">
+ <div class="card-header">
+  <h4 class="text-center">Customer Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name   : {{customer.name}}</li>
+      <li class="list-group-item">Email  : {{customer.email}}</li>
+      <li class="list-group-item">Phone  : {{customer.phone}}</li>
+      <li class="list-group-item">Gender :   : {{customer.gender}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary form-control m-1" routerLink="/customers">Back</a>
+    <button class="btn btn-outline-danger form-control m-1" (click)="deleteClick()">Delete</button>
+  </div>
+  </div>
+</div>
+
+<app-delete-item
+  *ngIf="showDeleteItem"
+  [deleteMessage]="deleteMessage"
+  [deleteTitle]="deleteTitle"
+  submitButton="Delete"
+  cancelButton="Cancel"
+  (onDeleteSubmit)="deleteCustomer($event)"
+>
+</app-delete-item>
+
+
+
+
+

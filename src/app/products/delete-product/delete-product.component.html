@@ -1,0 +1,40 @@
+<div class="border pado" *ngIf="!showDeleteItem">
+  <div class="card" *ngIf="product$ | async as prodfuct">
+ <div class="card-header">
+  <h4 class="text-center">Product Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name        : {{product.name}}</li>
+      <li class="list-group-item">Category    : {{product.Category?.name}}</li>
+      <li class="list-group-item">Price       : {{product.price}}</li>
+      <li class="list-group-item">Quantity    : {{product.quantity}}</li>
+      <li class="list-group-item">Description : {{product.description}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-warning form-control m-1" routerLink="/edit-product/{{product.id}}">Edit</a>
+    <a class="btn btn-outline-secondary form-control m-1" routerLink="/">Back</a>
+    <button class="btn btn-outline-danger form-control m-1" (click)="deleteClick()">Delete</button>
+  </div>
+  </div>
+</div>
+
+<app-delete-item
+  *ngIf="showDeleteItem"
+  [deleteMessage]="deleteMessage"
+  [deleteTitle]="deleteTitle"
+  submitButton="Delete"
+  cancelButton="Cancel"
+  (onDeleteSubmit)="deleteProduct($event)"
+>
+</app-delete-item>
+
+
+
+
+
+
+
+
+

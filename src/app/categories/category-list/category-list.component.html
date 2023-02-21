@@ -1,0 +1,41 @@
+<div class="border" *ngIf="categories$ | async as categories">
+  <div class="card pado">
+    <div class="card-header">
+      <h4 class="text-center">Category List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>
+              <a class="text-decor" routerLink="/detail-category/{{ category.id }}">{{
+                category.name
+              }}</a>
+            </td>
+            <td>
+              <a
+                class="btn btn-outline-warning m-1"
+                routerLink="/edit-category/{{ category.id }}"
+                >Edit</a
+              >
+              <a
+                class="btn btn-outline-danger m-1"
+                routerLink="/delete-category/{{ category.id }}"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-outline-secondary form-control text-decor fw-bold" routerLink="/add-category">Add Category</a>
+    </div>
+  </div>
+</div>

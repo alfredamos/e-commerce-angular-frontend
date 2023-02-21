@@ -1,0 +1,33 @@
+<div class="border pado" *ngIf="customers$ | async as customers">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Customer List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td><a class="text-decor" routerLink="/detail-customer/{{customer.id}}">{{customer.name}}</a></td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+            <td>{{customer.gender}}</td>
+            <td>              
+              <a class="btn btn-outline-danger" routerLink="/delete-customer/{{customer.id}}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class="card-footer"><a class="btn btn-outline-secondary form-control text-decor fw-bold" routerLink="#">Add Customer</a></div>
+  </div>
+</div>
+

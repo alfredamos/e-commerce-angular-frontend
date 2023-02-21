@@ -1,0 +1,27 @@
+<div class="border pado" *ngIf="!showDeleteItem">
+  <div class="card">
+ <div class="card-header" *ngIf="category$ | async as category">
+  <h4 class="text-center">Category Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name : {{category.name}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-warning form-control m-1" routerLink="/edit-category/{{category.id}}">Edit</a>
+    <a class="btn btn-outline-secondary form-control m-1" routerLink="/categories">Back</a>
+    <button class="btn btn-outline-danger form-control m-1" (click)="deleteClick()">Delete</button>
+  </div>
+  </div>
+</div>
+<app-delete-item
+  *ngIf="showDeleteItem"
+  [deleteMessage]="deleteMessage"
+  [deleteTitle]="deleteTitle"
+  submitButton="Delete"
+  cancelButton="Cancel"
+  (onDeleteSubmit)="deleteCategory($event)"
+>
+</app-delete-item>
+

@@ -1,0 +1,36 @@
+<div class="border pado" *ngIf="orders$ | async as orders">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Order List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td><a class="text-decor" routerLink="/detail-order/{{order.id}}">{{order.customer?.name}}</a></td>
+            <td>{{order.product?.name}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.status}}</td>
+            <td>
+              <a class="btn btn-outline-warning m-1" routerLink="/edit-order/{{order.id}}">Edit</a>
+              <a class="btn btn-outline-danger m-1" routerLink="/delete-order/{{order.id}}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class="card-footer"><a class="btn btn-outline-secondary form-control text-decor fw-bold" routerLink="/add-order">Add Order</a></div>
+  </div>
+</div>
+
+
+

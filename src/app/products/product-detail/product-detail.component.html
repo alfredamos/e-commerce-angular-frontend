@@ -1,0 +1,21 @@
+<div class="border pado" *ngIf="product$ | async as product">
+  <div class="card">
+ <div class="card-header">
+  <h4 class="text-center">Product Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name        : {{product.name}}</li>
+      <li class="list-group-item">Category    : {{product.Category?.name}}</li>
+      <li class="list-group-item">Price       : {{product.price}}</li>
+      <li class="list-group-item">Quantity    : {{product.quantity}}</li>
+      <li class="list-group-item">Description : {{product.description}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary form-control" routerLink="/">Back</a>
+  </div>
+  </div>
+</div>
+
+

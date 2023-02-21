@@ -1,0 +1,19 @@
+<div class="border pado" *ngIf="order$ | async as order">
+  <div class="card">
+ <div class="card-header">
+  <h4 class="text-center">Order Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Customer : {{order.customer?.name}}</li>
+      <li class="list-group-item">Product  : {{order.product?.name}}</li>
+      <li class="list-group-item">Quantity : {{order.quantity}}</li>
+      <li class="list-group-item">Status   : {{order.status}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary form-control" routerLink="/">Back</a>
+  </div>
+  </div>
+</div>
+

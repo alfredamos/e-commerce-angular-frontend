@@ -1,0 +1,20 @@
+<div class="border pado" *ngIf="customer$ | async as customer">
+  <div class="card">
+ <div class="card-header">
+  <h4 class="text-center">Customer Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name   : {{customer.name}}</li>
+      <li class="list-group-item">Email  : {{customer.email}}</li>
+      <li class="list-group-item">Phone  : {{customer.phone}}</li>
+      <li class="list-group-item">Gender :   : {{customer.gender}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary form-control" routerLink="/customers">Back</a>
+  </div>
+  </div>
+</div>
+
+

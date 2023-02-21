@@ -1,0 +1,43 @@
+<div class="border wita">
+  <div class="card">
+    <form [formGroup]="orderForm" (ngSubmit)="orderSubmit()">
+      <div class="card-header">
+        <h4 class="text-center">Order Form</h4>
+      </div> 
+      <div class="card-body">                 
+        <div class="mb-3">
+          <label for="customerId" class="form-label">Customer</label>
+          <select id="customerId" formControlName="customerId" class="form-select">
+            <option *ngFor="let customer of customers$ | async" [id]="customer.id" [value]="customer.id">{{customer.name}}</option>            
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="productId" class="form-label">Product</label>
+          <select id="productId" formControlName="productId" class="form-select">
+            <option *ngFor="let product of products$ | async" [id]="product.id" [value]="product.id">{{product.name}}</option>            
+          </select>
+        </div>
+         <div class="mb-3">
+          <label class="form-label" for="quantity">Qunatity</label>
+          <input
+            id="quantity"
+            type="number"
+            formControlName="quantity"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-outline-primary form-control m-1">Submit</button>
+        <button
+          type="button"
+          (click)="backToList()"
+          class="btn btn-outline-secondary form-control m-1"
+        >
+          Back
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
