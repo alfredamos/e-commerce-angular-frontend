@@ -1,23 +1,71 @@
 <ul class="nav nav-tabs mb-3 mt-3" *ngIf="authUser$ | async as authUser">
   <li class="nav-item">
-    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
-true}">Home</a>
+    <a
+      class="nav-link"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="/categories" routerLinkActive="active" >Categories</a>
+    <a class="nav-link" routerLink="/categories" routerLinkActive="active"
+      >Categories</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="/customers" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
-true}">Customers</a>
+    <a
+      class="nav-link"
+      routerLink="/customers"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Customers</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="/products" [routerLinkActiveOptions]="{exact:
-true}">Products</a>
-  </li>   
+    <a
+      class="nav-link"
+      routerLinkActive="active"
+      routerLink="/products"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Products</a
+    >
+  </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="/login" *ngIf="!authUser.isLoggedIn">Login</a>
-  </li>   
+    <a class="nav-link" routerLink="/login" *ngIf="!authUser.isLoggedIn"
+      >Login</a
+    >
+  </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="/logout"  *ngIf="authUser.isLoggedIn">Logout</a>
-  </li>   
+    <a class="nav-link" routerLink="/logout" *ngIf="authUser.isLoggedIn"
+      >Logout</a
+    >
+  </li>
+  <li class="dropdown" *ngIf="authUser.isLoggedIn">
+    <a
+      class="btn btn-link dropdown-toggle"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Settings
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li>
+        <a
+          class="dropdown-item"
+          routerLink="/change-password"
+          >Change Password</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" routerLink="/edit-profile" routerLinkActive="active"
+>Edit Profile</a>
+      </li>
+    </ul>
+  </li>
 </ul>
